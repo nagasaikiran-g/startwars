@@ -32,28 +32,31 @@ class Search extends React.Component {
             timer = setTimeout(this.clearTimer, 60000)
         }
         this.searchPlanets(evt.target.value);
+        if(this.stopExec){
+            return
+        }
+        this.stopExec = true;
+        if(this.props.name.toLowerCase() !== ADMIN.toLowerCase()){
+            //var typingTimer;                //timer identifier
+            //var doneTypingInterval = 5000;  //time in ms (5 seconds)
+            //clearTimeout(typingTimer);
+            this.typingTimer = setTimeout(this.doneTyping, this.doneTypingInterval);
+        }
     }
     onLogOut = () => {
         this.props.updateAuth(false);
         this.props.history.push('/');
     }
     doneTypingInterval = 5000;
-    // () => {
-    //    let t = 5000;
-   // }
-    onSearchChange = () => {
-        //evt.stopImmediatePropagation();
-        if(this.props.name.toLowerCase() !== ADMIN.toLowerCase()){
-            var typingTimer;                //timer identifier
-            //var doneTypingInterval = 5000;  //time in ms (5 seconds)
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(this.doneTyping, this.doneTypingInterval);
-           
-        }
-        
-    }
+    stopExec = false;
+    typingTimer;
     doneTyping = () => {
         this.props.updatePlanetsScount();
+        this.stopExec = false;
+    }
+    componentWillMount(){
+        clearTimeout(this.typingTimer);
+        console.log("timer cleared")
     }
     searchPlanets = (str) => {
         var results = [],
