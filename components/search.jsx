@@ -54,7 +54,7 @@ class Search extends React.Component {
         this.props.updatePlanetsScount();
         this.stopExec = false;
     }
-    componentWillMount(){
+    componentWillUnmount(){
         clearTimeout(this.typingTimer);
         console.log("timer cleared")
     }
