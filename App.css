@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.marginbtn{
+  margin:5px;
+}
+.searchbox{
+
+border:1px solid #ccc;
+height : 100%
+
+}
+
+.minHeight{
+  min-height: 10px;
+  background-color:burlywood;
+  width: 100%;
+}
+#overlay {
+  background-color: rgba(161, 120, 102, 0.8);
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80%;
+}
+
